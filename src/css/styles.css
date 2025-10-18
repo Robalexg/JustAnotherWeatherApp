@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e9e9e9;
+}
+
+.app{
+    background: #fafafa;
+    width: 95vw;
+    height: 80vh;
+    margin: auto;
+    border-radius: 60px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
