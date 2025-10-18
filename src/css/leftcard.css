@@ -2,7 +2,6 @@
     display: grid;
     grid-template-rows: 1fr 4fr 2fr;;
     padding: 40px 100px; 
-    border-right: 1px solid red;
 }
 
 
@@ -27,8 +26,8 @@
 }
 
 
-.leftCard .windSpeedContainer,
-.leftCard .precipitationContainer
+.windSpeedContainer,
+.precipitationContainer
 {
     display: flex;
     gap: 20px;
@@ -36,8 +35,8 @@
     font-size: 30px;
 }
 
-.leftCard .windSpeedContainer img,
-.leftCard .precipitationContainer img
+.windSpeedContainer img,
+.precipitationContainer img
 {
     width: 30px;
     height:auto;

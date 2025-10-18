@@ -30,11 +30,9 @@ const header = () => {
 const currentForecast = () => {
     //create elements
     let container = document.createElement('div')
-    let left = document.createElement('div')
-    let right = document.createElement('div')
     let curTemp = document.createElement('h1')
     let windSpeedContainer =  document.createElement('div')
-    let windSpeed =  document.createElement('div')
+    let windSpeed =  document.createElement('p')
     let precipitationContainer =  document.createElement('div')
     let precipitation =  document.createElement('p')
     let curCondition = document.createElement('p')
