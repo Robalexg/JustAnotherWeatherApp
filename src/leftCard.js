@@ -1,25 +1,53 @@
 import './css/leftcard.css'
 import rainSrc from './images/rain.png'
 import windSrc from './images/wind.png'
+import { index } from './index.js'
 
+let app = document.querySelector('.app')
 
-const header = () => {
+const header = (data) => {
+    //variables 
+    const currentDate = new Date();
+    const day = currentDate.getDate()
+    const month = currentDate.getMonth() + 1
+    const year = currentDate.getFullYear()
+
     //create elements
     let container = document.createElement('div')
-    let city = document.createElement("h1")
+    let form = document.createElement('form')
+    let city = document.createElement("input")
     let date = document.createElement("h1")
 
 
+    //id
+    city.id = 'cityInput'
+    
+    city.placeholder = data.city
+
     //add classes
     container.classList.add("header")
-
+    
+    //add name
+    city.name = 'city'
 
     //text content
-    city.textContent = 'City'
-    date.textContent = '21.04.2025'
+    date.textContent = `${day}.${month}.${year}`
+
+    //event listners
+    form.addEventListener('submit',(e) => {
+        e.preventDefault()
+        const formData = new FormData(form)
+        app.innerHTML = ''
+        index(formData.get('city'))
+
+        form.reset()
+    })
+
 
     //appends
-    container.appendChild(city)
+    form.appendChild(city)
+
+    container.appendChild(form)
     container.appendChild(date)
 
 
@@ -27,7 +55,7 @@ const header = () => {
     return container
 }
 
-const currentForecast = () => {
+const currentForecast = (data) => {
     //create elements
     let container = document.createElement('div')
     let curTemp = document.createElement('h1')
@@ -56,10 +84,10 @@ const currentForecast = () => {
     curCondition.id = 'curCondition'
 
     //add text content
-    curTemp.textContent ="20\u{00B0}"
-    windSpeed.textContent = '6.1 mph'
-    precipitation.textContent= '90 %'
-    curCondition.textContent = 'Cloudy'
+    curTemp.textContent =`${data.temp}\u{00B0}`
+    windSpeed.textContent = `${data.windspeed} mph`
+    precipitation.textContent= `${data.precip} %`
+    curCondition.textContent = data.condition
 
     //appends
     windSpeedContainer.appendChild(windImg)
@@ -76,7 +104,7 @@ const currentForecast = () => {
     return container
 }   
 
-const weeklyForecast = () => {
+const weeklyForecast = (data) => {
     //create elements
     let container = document.createElement('div')
     let forecast = [
@@ -153,9 +181,7 @@ const weeklyForecast = () => {
     return container
 }
 
-
-
-const leftCard = () => {
+const leftCard = (data) => {
     //create elements
     let container = document.createElement("div")
 
@@ -165,15 +191,14 @@ const leftCard = () => {
 
     
     //appends
-    container.appendChild(header())
-    container.appendChild(currentForecast())
-    container.appendChild(weeklyForecast())
+    container.appendChild(header(data))
+    container.appendChild(currentForecast(data))
+    container.appendChild(weeklyForecast(data))
     
     
     
     return container
 }
-
 
 
 export { leftCard }

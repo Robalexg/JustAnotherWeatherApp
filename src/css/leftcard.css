@@ -2,6 +2,9 @@
     display: grid;
     grid-template-rows: 1fr 4fr 2fr;;
     padding: 40px 100px; 
+    background: #fafafa;
+    border-radius: 60px;
+    
 }
 
 
@@ -9,7 +12,25 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     font-size: 12px;
+    align-items: center;
 }
+
+
+.leftCard .header #cityInput{
+    font-size: 2em;
+    background: #fafafa;
+    font-weight: bold;
+    border: none;
+    border-left: 2px solid black;
+    padding-left: 10px;
+
+
+}
+
+.leftCard .header #cityInput:focus{
+    outline: none;
+}
+
 
 .leftCard .currentForecast{
     display: grid;
@@ -57,7 +78,7 @@
     /* justify-self: center; */
     grid-column: 2/3;
     grid-row: 3/4;
-    font-size: 60px;
+    font-size: 20px;
 
 }
 

@@ -5,6 +5,10 @@ import windSrc from './images/wind.png'
 
 
 const header = () => {
+    const currentDate = new Date();
+    const hour = currentDate.getHours()
+    const min = currentDate.getMinutes()
+    //create elemnts
     let container = document.createElement('div')
     let greeting = document.createElement('h1')
     let time = document.createElement('h1')
@@ -14,8 +18,8 @@ const header = () => {
     container.classList.add("header")
 
     //add text content
-    greeting.textContent = 'Good Morning'
-    time.textContent = '12:20 PM'
+    greeting.textContent = (hour < 12) ? 'Good Morning': 'Good Evening'
+    time.textContent = `${hour}:${min} PM`
 
 
     container.appendChild(greeting)
@@ -24,7 +28,7 @@ const header = () => {
     return container
 }
 
-const currentWeather = () => {
+const currentWeather = (data) => {
     //create elements
     let container = document.createElement('div')
     let windSpeedContainer =  document.createElement('div')
@@ -46,12 +50,11 @@ const currentWeather = () => {
 
 
     //add text content
-    curTemp.textContent ="20\u{00B0}"
-    windSpeed.textContent = '6.1 mph'
-    precipitation.textContent= '90 %'
-    curCondition.textContent = 'Cloudy'
-    curTemp.textContent ="20\u{00B0}"
-    feelsLike.textContent = 'Feels like 19\u{00B0}'
+    curTemp.textContent =`${data.temp}\u{00B0}`
+    windSpeed.textContent = `${data.windspeed} mph`
+    precipitation.textContent= `${data.precip} %`
+    curCondition.textContent = data.condition
+    feelsLike.textContent = `Feels like ${data.feelslike}\u{00B0}`
 
 
     //add id's
@@ -167,7 +170,7 @@ const hourly = () => {
     return container
 }
 
-const rightCard = () => {
+const rightCard = (data) => {
     let container = document.createElement("div")
 
     //add classes
@@ -176,8 +179,8 @@ const rightCard = () => {
 
     //appends
     container.appendChild(header())
-    container.appendChild(currentWeather())
-    container.appendChild(hourly())
+    container.appendChild(currentWeather(data))
+    container.appendChild(hourly(data))
 
     return container
 }
