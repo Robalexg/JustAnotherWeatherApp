@@ -26,8 +26,8 @@
 }
 
 
-.windSpeedContainer,
-.precipitationContainer
+.leftCard .windSpeedContainer,
+.leftCard .precipitationContainer
 {
     display: flex;
     gap: 20px;
@@ -35,8 +35,8 @@
     font-size: 30px;
 }
 
-.windSpeedContainer img,
-.precipitationContainer img
+.leftCard .windSpeedContainer img,
+.leftCard .precipitationContainer img
 {
     width: 30px;
     height:auto;

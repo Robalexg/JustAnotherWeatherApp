@@ -130,11 +130,13 @@ const hourly = () => {
     //add text content 
     title.textContent = 'Hourly Forecast'
 
+    //add id's 
+    title.id = 'title'
 
     //appends
     container.appendChild(title)
 
-       //loop through data, create and append 
+    //loop through data, create and append 
      forecast.forEach((hour) => {
         //create elements
         let card = document.createElement('div')
@@ -142,6 +144,13 @@ const hourly = () => {
         let temp = document.createElement('p')
         let condition = document.createElement('p')
 
+        //add classes  
+        card.classList.add("hourCard")
+
+        //add id
+        temp.id = 'temp'
+        condition.id = 'condition'
+        
         //add text content
         time.textContent = hour.time
         temp.textContent = hour.temp
