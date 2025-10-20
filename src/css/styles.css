@@ -16,7 +16,7 @@ body{
 }
 
 .app{
-    background: #fafafa;
+    /* background: #fafafa; */
     width: 95vw;
     height: 80vh;
     margin: auto;

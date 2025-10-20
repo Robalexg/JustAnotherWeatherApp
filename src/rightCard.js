@@ -19,7 +19,7 @@ const header = () => {
 
     //add text content
     greeting.textContent = (hour < 12) ? 'Good Morning': 'Good Evening'
-    time.textContent = `${hour}:${min} PM`
+    time.textContent = (min < 10) ? `${hour}:0${min} PM` :`${hour}:${min} PM`
 
 
     container.appendChild(greeting)
